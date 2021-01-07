@@ -1,14 +1,14 @@
 <template>
   <div class="tabbaritem" @click="pathitem" :class="{active:isActive}">
-    <span v-if="isActive">
+    <div v-if="isActive">
       <slot name="item-icon-active"></slot>
-    </span>
-    <span v-else>
+    </div>
+    <div v-else>
       <slot name="item-icon"></slot>
-    </span>
-    <span>
+    </div>
+    <div>
       <slot name="item-text"></slot>
-    </span>
+    </div>
 
   </div>
 </template>
@@ -19,13 +19,13 @@
     props: ["path"],
     data() {
       return {
-        isActive: false,
+        // isActive: false,
       };
     },
     computed: {
-      // isActive() {
-        // return this.$route.path.indexOf(this.path) !== -1
-      // }
+      isActive() {
+        return this.$route.path.indexOf(this.path) !== -1
+      }
     },
     methods: {
       pathitem() {
@@ -37,6 +37,7 @@
 
 <style>
   .tabbaritem {
+    position: relative;
     flex: 1;
     display: flex;
     align-items: center;
@@ -46,12 +47,12 @@
     /* padding: 5px; */
   }
 
-  .tabbaritem img {
-    width: 15px;
-    vertical-align: middle;
-    margin-right: 5px;
+  .tabbaritem>div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
-
+  
   .active {
     color: #fb7c94;
   }
