@@ -13,7 +13,7 @@
   </div>
 </template>
 
-<script>
+<script scoped>
   export default {
     name: "TabbarItem",
     props: ["path"],
@@ -52,7 +52,7 @@
     align-items: center;
     justify-content: center;
   }
-  
+
   .active {
     color: #fb7c94;
   }

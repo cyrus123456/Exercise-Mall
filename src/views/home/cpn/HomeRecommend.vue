@@ -26,9 +26,12 @@
 <style>
   .homerecommend {
     display: flex;
+    position: relative;
+		z-index: 8;
     padding: 15px 10px;
     font-size: 10px;
-    box-shadow: 0px 8px 39px -42px #000;
+    background-color: #FFFFFF;
+    box-shadow: 0px 2px 13px -13px #000;
   }
 
   .homerecommend>div {

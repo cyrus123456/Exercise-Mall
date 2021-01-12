@@ -18,9 +18,10 @@
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style>
+<style scoped>
   .tabbar {
     position: fixed;
+		z-index: 9;
     left: 0;
     right: 0;
     bottom: 0;

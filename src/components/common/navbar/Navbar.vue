@@ -18,17 +18,13 @@
   };
 </script>
 
-<style>
+<style scoped>
   .navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    z-index: 1;
+    z-index: 99;
     display: flex;
     align-items: center;
     height: 44px;
-    /* box-shadow: 0px 20px 20px -21px #000; */
+    box-shadow: 0px 7px 20px -21px #000;
   }
 
   .left,
