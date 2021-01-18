@@ -45,7 +45,7 @@
       @click.native="backtopbutton"
       v-show="isbacktop"
     ></BackTopButton>
-    <Toast :class="{ Toastshow: isToastshow }" :text="toastTip"></Toast>
+    <Toast :isToastshow="isToastshow" :text="toastTip"></Toast>
   </div>
 </template>
 
@@ -158,7 +158,10 @@ export default {
           this.toastTip = text;
           this.isToastshow = true;
           setTimeout(() => {
+            console.log("关闭弹窗");
+
             this.isToastshow = false;
+            // this.$forceUpdate();
           }, 2000);
         })
         .catch(err => {
@@ -371,16 +374,5 @@ export default {
 .goodsdetail .BerterScroll {
   height: calc(100% - 94px);
   overflow: hidden;
-}
-/* 弹窗模块儿样式。 */
-.Toastshow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  padding: 10px;
-  background-color: rgba(0, 0, 0, 0.6);
-  border-radius: 10px;
-  color: #ffffff;
-  transform: translate(-50%, -50%);
 }
 </style>

@@ -112,6 +112,8 @@ export default {
           this.$store.commit("noAllCheckedGood");
         } else {
           this.$store.commit("allCheckedGood"); //修改商品是否被选中。
+          console.log(this.$toast); //看看有没有。自定义组件。
+          this.$toast.show("选中全部商品");
         }
       }
       this.$forceUpdate();

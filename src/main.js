@@ -7,6 +7,10 @@ import store from './store'
 import waterfall from 'vue-waterfall2'
 Vue.use(waterfall)
 
+//导入自定义弹窗插件。Totals. 
+import toast from 'components/common/toast'
+// 安装插件
+Vue.use(toast)
 
 
 //图片懒加载
