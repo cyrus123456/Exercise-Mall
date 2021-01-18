@@ -16,9 +16,19 @@
   .feature{
     position: relative;
     z-index: 7;
-    box-shadow: 0px 4px 10px -10px #000;
+    height: 235px;
+    width: 100hw;
+    box-shadow: 0px 2px 10px -10px #000;
+  }
+  .feature a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
   }
   .feature img {
-    width: 100%;
+    width: 101.5%;
+    height: 100%;
   }
 </style>

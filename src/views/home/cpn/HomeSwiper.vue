@@ -1,6 +1,6 @@
 <template>
-  <div class="homeswiper">
-    <Swiper>
+  <div>
+    <Swiper class="homeswiper">
       <SwiperItem v-for="(item, index) in bannerList" :key="index">
         <a :href="item.link">
           <img :src="item.image" :alt="item.title" @load="swiperImgload">

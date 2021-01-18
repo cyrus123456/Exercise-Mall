@@ -1,9 +1,9 @@
 <template>
   <div id="app">
-    <keep-alive exclude="Profile">
+    <keep-alive exclude="Profile,Goodsdetail">
       <router-view></router-view>
     </keep-alive>
-    <MainTabbar />
+    <MainTabbar v-show="isshowTabbar" />
   </div>
 </template>
 
@@ -11,9 +11,23 @@
   import MainTabbar from "components/context/MainTabbar.vue"
   export default {
     name: "App",
+    data() {
+      return {
+        isshowTabbar: true
+      }
+    },
     components: {
       MainTabbar,
     },
+    mounted() {
+      this.$bus.$on("hideMainTabbar", () => {
+        this.isshowTabbar = false
+      })
+
+      this.$bus.$on("showMainTabbar", () => {
+        this.isshowTabbar = true
+      })
+    }
   };
 </script>
 

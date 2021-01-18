@@ -2,6 +2,21 @@
 
 /*:root -> 获取根元素html*/
 
+/* 清除浮动 */
+.clearfix:before,
+.clearfix:after {
+	content: "";
+	display: table;
+}
+
+.clearfix:after {
+	clear: both;
+}
+
+.clearfix {
+	*zoom: 1;
+}
+
 :root {
   --color-text: #666;
   --color-high-text: #ff5777;

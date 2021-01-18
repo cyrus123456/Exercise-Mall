@@ -1,11 +1,11 @@
 <template>
-  <div class="goodsitem" @click="goodItemClick" :style="{width: goodItem.show.w / 2.2 + 'px' }">
-    <img v-lazy="goodItem.show.img" :key="goodItem.iid" @load="imagedownload" :style="{width: goodItem.show.w / 2.2 + 'px' }">
+  <div class="goodsitem" @click="goodItemClick">
+    <img v-lazy="goodimg" :key="goodItem.iid" @load="imagedownload" :style="{width: itemWidth + 'px' }">
     <div class="goods-info">
       <p>{{goodItem.title}}</p>
-      <span class="price">折扣价：{{goodItem.price}}</span>
+      <span class="price">折扣价：{{discountPrice}}</span>
       <br />
-      <span>已售：{{goodItem.sale}}</span>
+      <span>已售：{{goodItemsale}}</span>
     </div>
   </div>
 </template>
@@ -21,13 +21,33 @@
         }
       }
     },
+    computed: {
+      itemWidth() {
+        return (document.documentElement.clientWidth - 30) / 2 // rem to layout, Calculate the value of width
+      },
+      goodimg() {
+        return this.goodItem.image || this.goodItem.show.img
+      },
+      goodItemsale() {
+        return this.goodItem.itemSale || this.goodItem.sale
+      },
+      discountPrice() {
+        return this.goodItem.price || this.goodItem.discountPrice
+      }
+    },
     methods: {
+      // 判断通知在哪个页面去。刷新better score的。高度。
       imagedownload() {
+
+        if (this.$route.path.indexOf("/goodsdetai") >= 0) {
+          this.$bus.$emit("imagedownload_detail")
+        } else if (this.$route.path.indexOf("/home") >= 0) {
+          this.$bus.$emit("imagedownload")
+        }
         // console.log("图片下载完成了")
-        this.$bus.$emit("imagedownload")
       },
       goodItemClick() {
-        console.log("goodItemClick")
+        // console.log("goodItemClick")
         this.$router.push("/goodsdetail" + this.goodItem.iid)
       }
     }

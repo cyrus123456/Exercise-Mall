@@ -22,6 +22,7 @@
   .navbar {
     z-index: 99;
     display: flex;
+    top: 0;
     align-items: center;
     height: 44px;
     box-shadow: 0px 7px 20px -21px #000;

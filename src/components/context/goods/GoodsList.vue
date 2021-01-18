@@ -1,6 +1,7 @@
 <template>
   <div class="goodslist">
-    <waterfall :col='col' :width="itemWidth" :gutterWidth="gutterWidth" :data="goodlist">
+    <!-- waterfall2 -->
+    <waterfall :col='col' :width="itemWidth" :gutterWidth="0" :data="goodlist" :isTransition="false">
       <GoodsItem v-for="item in goodlist" :goodItem="item"></GoodsItem>
     </waterfall>
   </div>
@@ -28,10 +29,7 @@
     },
     computed: {
       itemWidth() {
-        return document.documentElement.clientWidth / 2 - 5 // rem to layout, Calculate the value of width
-      },
-      gutterWidth() {
-        return (0 * 0.5 * (document.documentElement.clientWidth / 320)) // rem to layout, Calculate the value of margin
+        return (document.documentElement.clientWidth - 10) / 2 // rem to layout, Calculate the value of width
       }
     }
   };
